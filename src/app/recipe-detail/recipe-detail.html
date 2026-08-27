@@ -1,0 +1,22 @@
+<p class="recipe-name">{{ recipe().name }}</p>
+<p class="recipe-description">{{ recipe().description }}</p>
+<div class="recipe-card">
+  <img class="recipe-image" [src]="recipe().imgUrl" [alt]="recipe()?.altText" />
+  <div>
+    <label for="servings" style="display: block">Servings: {{ servings() }}</label>
+    <button (click)="increment()">Increment</button> |
+    <button (click)="decrement()">Decrement</button>
+    <ul class="list-group">
+      @for (ingredient of adjustedIngredients(); track ingredient.name) {
+        <li class="list-group-item">
+          {{ ingredient.name }} — {{ ingredient.quantity }} {{ ingredient.unit }}
+        </li>
+      }
+      @if (recipe().isFavorite) {
+        <li class="list-group-item">Favorite: Yes</li>
+      } @else {
+        <li class="list-group-item">Favorite: No</li>
+      }
+    </ul>
+  </div>
+</div>

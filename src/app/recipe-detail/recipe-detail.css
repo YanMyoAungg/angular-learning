@@ -1,0 +1,24 @@
+.recipe-card {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.recipe-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recipe-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.recipe-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}

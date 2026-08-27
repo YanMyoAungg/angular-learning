@@ -10,7 +10,7 @@
     "serve:ssr:angular-learning": "node dist/angular-learning/server/server.mjs"
   },
   "private": true,
-  "packageManager": "pnpm@11.15.1",
+  "packageManager": "pnpm@11.22.0",
   "dependencies": {
     "@angular/common": "^22.1.0",
     "@angular/compiler": "^22.1.0",

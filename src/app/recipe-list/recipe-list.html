@@ -1,0 +1,21 @@
+<div style="width: fit-content; margin-inline: auto">
+  <h1>{{ title() }}</h1>
+  <input [(ngModel)]="search" placeholder="Search recipes..." class="form-control" />
+
+  @if (search().trim() === '') {
+    <app-recipe-detail [recipe]="recipe()" />
+  } @else if (filteredRecipes().length > 0) {
+    <app-recipe-detail [recipe]="filteredRecipes()[0]" />
+  } @else {
+    <p role="status">No recipes found.</p>
+  }
+
+  @if (search().trim() === '') {
+    <br />
+    @if (isFirstRecipe()) {
+      <button (click)="showSecondRecipe()">Switch to Second Recipe</button>
+    } @else {
+      <button (click)="showFirstRecipe()">Switch to First Recipe</button>
+    }
+  }
+</div>
