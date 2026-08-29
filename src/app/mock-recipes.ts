@@ -5,6 +5,7 @@ export const MOCK_RECIPES: RecipeModel[] = [
     id: 1,
     name: 'Spaghetti Carbonara',
     description: 'A classic Italian pasta dish.',
+    authorEmail: 'mario@italy.co',
     isFavorite: true,
     imgUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoz2uFSmYIfzWfestudR-FnqYusF_kWFLOuqSqGd4CnZgMEyK_2cq2N3c&s=10',
@@ -21,6 +22,7 @@ export const MOCK_RECIPES: RecipeModel[] = [
     id: 2,
     name: 'Caprese Salad',
     description: 'A simple and refreshing Italian salad.',
+    authorEmail: 'luca@igliani.co',
     isFavorite: false,
     imgUrl:
       'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2Farchive%2F3b432b41ce04c96a08d77befa42b9881a587a436',

@@ -1,7 +1,25 @@
+.recipe-list-container {
+  width: min(100% - 2rem, 700px);
+  margin-inline: auto;
+  padding-block: 1rem;
+}
+
+.recipe-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.recipe-image {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
 .form-control {
   width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  box-sizing: border-box;
 }

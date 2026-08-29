@@ -1,0 +1,34 @@
+<form (submit)="save($event)" novalidate>
+  <h3>Create New Recipe</h3>
+  <label>
+    Name
+    <input [formField]="recipeForm.name" />
+    <!-- @if (recipeForm.name().invalid() && recipeForm.name().touched()) {
+      <span class="error">Name is required</span>
+    } -->
+    @if (recipeForm.name().touched() && recipeForm.name().invalid()) {
+      @for (error of recipeForm.name().errors(); track error.kind) {
+        <span class="error">{{ error.message }}</span>
+      }
+    }
+  </label>
+  <label>
+    Description
+    <textarea [formField]="recipeForm.description"></textarea>
+    @if (recipeForm.description().touched() && recipeForm.description().invalid()) {
+      @for (error of recipeForm.description().errors(); track error.kind) {
+        <span class="error">{{ error.message }}</span>
+      }
+    }
+  </label>
+  <label>
+    Author Email
+    <input [formField]="recipeForm.authorEmail" />
+    @if (recipeForm.authorEmail().touched() && recipeForm.authorEmail().invalid()) {
+      @for (error of recipeForm.authorEmail().errors(); track error.kind) {
+        <span class="error">{{ error.message }}</span>
+      }
+    }
+  </label>
+  <button type="submit">Send</button>
+</form>

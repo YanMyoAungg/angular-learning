@@ -1,7 +1,7 @@
-<p class="recipe-name">{{ recipe().name }}</p>
-<p class="recipe-description">{{ recipe().description }}</p>
+<p class="recipe-name">{{ recipe()?.name }}</p>
+<p class="recipe-description">{{ recipe()?.description }}</p>
 <div class="recipe-card">
-  <img class="recipe-image" [src]="recipe().imgUrl" [alt]="recipe()?.altText" />
+  <img class="recipe-image" [src]="recipe()?.imgUrl" [alt]="recipe()?.altText" />
   <div>
     <label for="servings" style="display: block">Servings: {{ servings() }}</label>
     <button (click)="increment()">Increment</button> |
@@ -12,11 +12,12 @@
           {{ ingredient.name }} — {{ ingredient.quantity }} {{ ingredient.unit }}
         </li>
       }
-      @if (recipe().isFavorite) {
+      @if (recipe()?.isFavorite) {
         <li class="list-group-item">Favorite: Yes</li>
       } @else {
         <li class="list-group-item">Favorite: No</li>
       }
     </ul>
+    <button routerLink="/recipes">Go back</button>
   </div>
 </div>

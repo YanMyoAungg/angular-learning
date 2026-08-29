@@ -1,21 +1,25 @@
 <div style="width: fit-content; margin-inline: auto">
   <h1>{{ title() }}</h1>
   <input [(ngModel)]="search" placeholder="Search recipes..." class="form-control" />
+  <button matButton="elevated" color="primary" routerLink="/recipes/new">Add New Recipe</button>
+  @for (recipe of filteredRecipes(); track $index) {
+    <div class="recipe-list-container">
+      <p class="recipe-name">{{ recipe.name }}</p>
+      <p class="recipe-description">{{ recipe.description }}</p>
+      <div class="recipe-card">
+        <img class="recipe-image" [src]="recipe.imgUrl" [alt]="recipe?.altText" />
+      </div>
 
-  @if (search().trim() === '') {
-    <app-recipe-detail [recipe]="recipe()" />
-  } @else if (filteredRecipes().length > 0) {
-    <app-recipe-detail [recipe]="filteredRecipes()[0]" />
-  } @else {
-    <p role="status">No recipes found.</p>
+      <a [routerLink]="['/recipes', recipe.id]">View Details</a>
+    </div>
   }
 
-  @if (search().trim() === '') {
+  <!-- @if (search().trim() === '') {
     <br />
     @if (isFirstRecipe()) {
       <button (click)="showSecondRecipe()">Switch to Second Recipe</button>
     } @else {
       <button (click)="showFirstRecipe()">Switch to First Recipe</button>
     }
-  }
+  } -->
 </div>
