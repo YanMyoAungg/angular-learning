@@ -2,33 +2,42 @@
   <h3>Create New Recipe</h3>
   <label>
     Name
-    <input [formField]="recipeForm.name" />
-    <!-- @if (recipeForm.name().invalid() && recipeForm.name().touched()) {
-      <span class="error">Name is required</span>
-    } -->
+    <input [formField]="recipeForm.name" aria-describedby="name-errors" />
     @if (recipeForm.name().touched() && recipeForm.name().invalid()) {
-      @for (error of recipeForm.name().errors(); track error.kind) {
-        <span class="error">{{ error.message }}</span>
-      }
+      <span id="name-errors" role="alert">
+        @for (error of recipeForm.name().errors(); track error.kind) {
+          <span class="error">{{ error.message }}</span>
+        }
+      </span>
     }
   </label>
+
   <label>
     Description
-    <textarea [formField]="recipeForm.description"></textarea>
+    <textarea [formField]="recipeForm.description" aria-describedby="description-errors"></textarea>
     @if (recipeForm.description().touched() && recipeForm.description().invalid()) {
-      @for (error of recipeForm.description().errors(); track error.kind) {
-        <span class="error">{{ error.message }}</span>
-      }
+      <span id="description-errors" role="alert">
+        @for (error of recipeForm.description().errors(); track error.kind) {
+          <span class="error">{{ error.message }}</span>
+        }
+      </span>
     }
   </label>
   <label>
     Author Email
-    <input [formField]="recipeForm.authorEmail" />
+    <input [formField]="recipeForm.authorEmail" aria-describedby="authorEmail-errors" />
     @if (recipeForm.authorEmail().touched() && recipeForm.authorEmail().invalid()) {
-      @for (error of recipeForm.authorEmail().errors(); track error.kind) {
-        <span class="error">{{ error.message }}</span>
-      }
+      <span id="authorEmail-errors" role="alert">
+        @for (error of recipeForm.authorEmail().errors(); track error.kind) {
+          <span class="error">{{ error.message }}</span>
+        }
+      </span>
     }
   </label>
   <button type="submit">Send</button>
 </form>
+@if (recipeForm().errorSummary().length) {
+  <p class="error" role="alert">
+    {{ recipeForm().errorSummary().length }} field(s) need attention.
+  </p>
+}

@@ -23,7 +23,7 @@ textarea {
 }
 
 .error {
-  color: red;
+  color: #d32f2f;
   font-size: 0.9rem;
   margin-bottom: 10px;
   display: block;
